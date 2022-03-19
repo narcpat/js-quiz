@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link "stylesheet" href="./assets/css/style.css" />
+  <title>Do You Even Code?</title>
+</head>
+<body>
+  <!-- Quiz Main -->
+  <main>
+    <!-- START QUIZ -->
+    <div id="start"> Start Quiz! </div>
+
+      <!-- QUIZ section -->
+      <div id="quiz" style="display: none;">
+
+        <!-- QUESTION section -->
+        <div id="question"> <p> Question </p> </div>
+
+        <!-- TIMER/COUNTER section -->
+        <div id="timer">
+          <div id="counter"> 6 </div>
+        </div>
+    
+        <!-- CHOICES section -->
+        <div id="choices">
+          <div class="choice" id="A" onclick="checkAnswer('A')"">A</div>
+          <div class="choice" id="B" onclick="checkAnswer('B')"">B</div>
+          <div class="choice" id="C" onclick="checkAnswer('C')"">C</div>
+          <div class="choice" id="D" onclick="checkAnswer('D')"">D</div>
+        </div>
+
+      </div>
+      <div id="scoreContainer" style="display: none;">
+        <p>100%</p>
+      </div>
+  </main>
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
