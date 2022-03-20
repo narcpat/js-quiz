@@ -1,6 +1,36 @@
-// When I click start button, the quiz starts with the first question and the timer starts
+// When I click start button, the rules and start button disappear, the quiz starts with the first question and the timer starts
 
 var start = document.getElementById("start");
+var timer = document.getElementById("timer");
+
+// When I click start button, the rules and start button disappear
+var startQuiz = function (event) {
+  event.preventDefault();
+  var div = document.getElementById("start");
+  div.remove();
+  countDown();
+};
+
+// The Timer function: Start on START BUTTON click... take 10 seconds off for every wrong answer
+(function () {
+  var seconds = 60;
+  var startTimer = function () {
+    console.log("Timer to start");
+    var timer = setInterval(function () {
+      seconds--;
+      document.getElementById("counter").innerHTML = "00:" + seconds;
+      if (seconds < 0) {
+        clearInterval(timer);
+        alert("Time is up!");
+      }
+    }, 1000);
+  };
+  document.getElementById("incorrect").addEventListener("click", function () {
+    seconds -= 10;
+    document.getElementById("counter").innerHTML = "00:" + seconds;
+  });
+  startTimer();
+})();
 
 // TODO question function
 
@@ -19,3 +49,6 @@ var start = document.getElementById("start");
 // When the game is over, I can save my initials and score
 
 // TODO create storage function for scores and initials
+
+// start quiz and remove start quiz div and button
+start.addEventListener("click", startQuiz);
