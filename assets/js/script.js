@@ -12,12 +12,13 @@ var startQuiz = function (event) {
 };
 
 // The Timer function: Start on START BUTTON click... take 10 seconds off for every wrong answer
-(function () {
+function countDown() {
   var seconds = 60;
   var startTimer = function () {
     console.log("Timer to start");
     var timer = setInterval(function () {
       seconds--;
+      console.log(seconds);
       document.getElementById("counter").innerHTML = "00:" + seconds;
       if (seconds < 0) {
         clearInterval(timer);
@@ -30,7 +31,7 @@ var startQuiz = function (event) {
     document.getElementById("counter").innerHTML = "00:" + seconds;
   });
   startTimer();
-})();
+}
 
 // TODO question function
 
