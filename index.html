@@ -4,38 +4,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link "stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css"/>
   <title>Do You Even Code?</title>
 </head>
 <body>
   <!-- Quiz Main -->
-  <main>
-    <!-- START QUIZ -->
-    <div id="start"> Start Quiz! </div>
+  <main class="wrapper">
+    <header>
+      <h1>DO YOU EVEN CODE?</h1>
+      <h2>Java Script Edition</h2>
+    </header>
 
-      <!-- QUIZ section -->
-      <div id="quiz" style="display: none;">
+    <div class="card">
 
-        <!-- QUESTION section -->
-        <div id="question"> <p> Question </p> </div>
-
-        <!-- TIMER/COUNTER section -->
-        <div id="timer">
-          <div id="counter"> 6 </div>
-        </div>
-    
-        <!-- CHOICES section -->
-        <div id="choices">
-          <div class="choice" id="A" onclick="checkAnswer('A')"">A</div>
-          <div class="choice" id="B" onclick="checkAnswer('B')"">B</div>
-          <div class="choice" id="C" onclick="checkAnswer('C')"">C</div>
-          <div class="choice" id="D" onclick="checkAnswer('D')"">D</div>
-        </div>
-
+      <!-- START QUIZ -->
+      <div id="start"> 
+        <h3>Start Quiz!</h3>
+        <p>Welcome to <em>Do You Even Code? Jave Script Edition</em> where we find out whether you TRULY ARE A CODER</p>
+        <p>
+        Here are the rules:
+        </p>
+        <ol>
+          <li>You have 60 seconds to answer all 5 questions.</li>
+          <li>For each wrong answer, 10 seconds are taken off the clock.</li>
+          <li>Each right answer is worth 10 points.</li>
+          <li>The game ends when all questions are answered, or time runs out.</li>
+        </ol>
+        <h3><em>Good Luck!</em></h3>
+        <button class="btn">START</button>
       </div>
+
+        <!-- QUIZ section -->
+        <div id="quiz" style="display: none;">
+
+          <!-- QUESTION section -->
+          <div id="question"> <p> Question </p> </div>
+
+          <!-- TIMER/COUNTER section -->
+          <div id="timer">
+            <div id="counter"> 6 </div>
+          </div>
+      
+          <!-- CHOICES section -->
+          <div id="choices">
+            <div class="choice" id="A" onclick="checkAnswer('A')"">A</div>
+            <div class="choice" id="B" onclick="checkAnswer('B')"">B</div>
+            <div class="choice" id="C" onclick="checkAnswer('C')"">C</div>
+            <div class="choice" id="D" onclick="checkAnswer('D')"">D</div>
+          </div>
+      </div>
+
       <div id="scoreContainer" style="display: none;">
         <p>100%</p>
       </div>
+
+    </div>
+    
   </main>
   <script src="./assets/js/script.js"></script>
 </body>

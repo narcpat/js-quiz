@@ -1,5 +1,7 @@
 // When I click start button, the quiz starts with the first question and the timer starts
 
+var start = document.getElementById("start");
+
 // TODO question function
 
 // When I click to answer, I am given feedback as to whether I answered correctly or wrongly, and another question is presented (or do I create a next question button?)
