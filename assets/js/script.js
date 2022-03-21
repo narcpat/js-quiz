@@ -4,6 +4,8 @@ var question = document.getElementById("question");
 var counter = document.getElementById("counter");
 var progress = document.getElementById("progress");
 var score = document.getElementById("scoreContainer");
+var seconds = 60;
+var timer;
 
 // When I click start button, the rules and start button disappear, the quiz starts with the first question and the timer starts
 
@@ -11,33 +13,24 @@ var score = document.getElementById("scoreContainer");
 var startQuiz = function (event) {
   // event.preventDefault();
   start.style.display = "none";
-  countDown();
+  startTimer();
   renderQuestion();
   renderProgress();
   quiz.style.display = "block";
 };
 
 // The Timer function: Start on START BUTTON click
-function countDown() {
-  var seconds = 60;
-  var startTimer = function () {
-    console.log("Timer to start");
-    var timer = setInterval(function () {
-      seconds--;
-      document.getElementById("counter").innerHTML = "0:" + seconds;
-      if (seconds < 0) {
-        clearInterval(timer);
-        alert("Time is up!");
-      }
-    }, 1000);
-  };
-  // When a question is answered incorrectly, 10 seconds are taken off the timer
-  document.getElementById("incorrect").addEventListener("click", function () {
-    seconds -= 10;
+var startTimer = function () {
+  console.log("Timer to start");
+  timer = setInterval(function () {
+    seconds--;
     document.getElementById("counter").innerHTML = "0:" + seconds;
-  });
-  startTimer();
-}
+    if (seconds < 0) {
+      clearInterval(timer);
+      alert("Time is up!");
+    }
+  }, 1000);
+};
 
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
@@ -90,7 +83,7 @@ var questions = [
   },
 ];
 
-// Display questions and answeres in QUIZ area
+// Display questions and answers in QUIZ area
 var lastQuestionIndex = questions.length - 1;
 var runningQuestionIndex = 0;
 
@@ -111,6 +104,8 @@ var answerIsCorrect = function () {
 };
 var answerIsWrong = function () {
   document.getElementById(runningQuestionIndex).style.backgroundColor = "red";
+  // if answer is wrong, take away 10 seconds from timer
+  seconds -= 10;
 };
 
 var score = 0;
@@ -149,32 +144,11 @@ var scoreRender = function () {
 // When all questions are answered or the timer reaches 0 the game is over.
 
 // Get players' initials
-var getPlayerInitials = function () {
-  var initials = "";
+// var playerInfo = {
+//   initials: getPlayerInitials(),
+//   perc: scoreRender(),
+// };
 
-  while (initials === "" || initials === null) {
-    initials = prompt("Please enter your initials!");
-  }
-  console.log("Thank you " + initials);
-  return initials;
-};
-
-var playerInfo = {
-  initials: getPlayerInitials(),
-  perc: scoreRender(),
-};
-
-var endGame = function () {
-  window.alert("The game has ended. Let's see your score!");
-  // check localStorage for high score, if it's not there, use 0
-  var highScore = localStorage.getItem("highScore");
-  if (highScore === null) {
-    highScore = 0;
-  }
-
-  localStorage.setItem("highScore", playerInfo.perc);
-  localStorage.setItem("initials", playerInfo.initials);
-};
 // When the game is over, I can save my initials and score
 
 // TODO create storage function for scores and initials
