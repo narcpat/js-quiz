@@ -146,8 +146,35 @@ var scoreRender = function () {
 };
 
 // TODO End of Game function scenario
-// When all questions are answered or the timer reaches 0 the game is over
+// When all questions are answered or the timer reaches 0 the game is over.
 
+// Get players' initials
+var getPlayerInitials = function () {
+  var initials = "";
+
+  while (initials === "" || initials === null) {
+    initials = prompt("Please enter your initials!");
+  }
+  console.log("Thank you " + initials);
+  return initials;
+};
+
+var playerInfo = {
+  initials: getPlayerInitials(),
+  perc: scoreRender(),
+};
+
+var endGame = function () {
+  window.alert("The game has ended. Let's see your score!");
+  // check localStorage for high score, if it's not there, use 0
+  var highScore = localStorage.getItem("highScore");
+  if (highScore === null) {
+    highScore = 0;
+  }
+
+  localStorage.setItem("highScore", playerInfo.perc);
+  localStorage.setItem("initials", playerInfo.initials);
+};
 // When the game is over, I can save my initials and score
 
 // TODO create storage function for scores and initials
