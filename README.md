@@ -12,7 +12,7 @@ To create an interactive quiz game on JavaScript using HTML, CSS and JavaScript.
 
 ## Website
 
-www.placeholder.com
+https://narcpat.github.io/js-quiz/
 
 ![Screenshot of Do You Even Code?](./assets/images/JS-Quiz_Screenshot.jpg)
 
