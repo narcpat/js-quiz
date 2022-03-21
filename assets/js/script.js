@@ -3,7 +3,7 @@ var timer = document.getElementById("timer");
 var question = document.getElementById("question");
 var counter = document.getElementById("counter");
 var progress = document.getElementById("progress");
-var score = document.getElementById("score");
+var score = document.getElementById("scoreContainer");
 
 // When I click start button, the rules and start button disappear, the quiz starts with the first question and the timer starts
 
@@ -13,8 +13,8 @@ var startQuiz = function (event) {
   start.style.display = "none";
   countDown();
   renderQuestion();
-  quiz.style.display = "block";
   renderProgress();
+  quiz.style.display = "block";
 };
 
 // The Timer function: Start on START BUTTON click
@@ -24,8 +24,7 @@ function countDown() {
     console.log("Timer to start");
     var timer = setInterval(function () {
       seconds--;
-      console.log(seconds);
-      document.getElementById("counter").innerHTML = "00:" + seconds;
+      document.getElementById("counter").innerHTML = "0:" + seconds;
       if (seconds < 0) {
         clearInterval(timer);
         alert("Time is up!");
@@ -35,7 +34,7 @@ function countDown() {
   // When a question is answered incorrectly, 10 seconds are taken off the timer
   document.getElementById("incorrect").addEventListener("click", function () {
     seconds -= 10;
-    document.getElementById("counter").innerHTML = "00:" + seconds;
+    document.getElementById("counter").innerHTML = "0:" + seconds;
   });
   startTimer();
 }
@@ -122,6 +121,7 @@ var checkAnswer = function (answer) {
   } else {
     answerIsWrong();
   }
+  count = 0;
   if (runningQuestionIndex < lastQuestionIndex) {
     runningQuestionIndex++;
     renderQuestion();
