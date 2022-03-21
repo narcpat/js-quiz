@@ -1,16 +1,20 @@
-// When I click start button, the rules and start button disappear, the quiz starts with the first question and the timer starts
-
 var start = document.getElementById("start");
 var timer = document.getElementById("timer");
 var question = document.getElementById("question");
+var counter = document.getElementById("counter");
+var progress = document.getElementById("progress");
+var score = document.getElementById("score");
+
+// When I click start button, the rules and start button disappear, the quiz starts with the first question and the timer starts
 
 // When I click start button, the rules and start button disappear
 var startQuiz = function (event) {
   // event.preventDefault();
   start.style.display = "none";
   countDown();
-  questionRender();
+  renderQuestion();
   quiz.style.display = "block";
+  renderProgress();
 };
 
 // The Timer function: Start on START BUTTON click
@@ -35,8 +39,6 @@ function countDown() {
   });
   startTimer();
 }
-
-// When I click to answer, I am given feedback as to whether I answered correctly or wrongly, and another question is presented (or do I create a next question button?)
 
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
@@ -93,7 +95,7 @@ var questions = [
 var lastQuestionIndex = questions.length - 1;
 var runningQuestionIndex = 0;
 
-var questionRender = function () {
+var renderQuestion = function () {
   var q = questions[runningQuestionIndex];
   question.innerHTML = "<p>" + q.question + "</p>";
   choiceA.innerHTML = q.choiceA;
@@ -101,36 +103,50 @@ var questionRender = function () {
   choiceC.innerHTML = q.choiceC;
   choiceD.innerHTML = q.choiceD;
 };
-// TODO create timer function EX: https://stackoverflow.com/questions/58964755/subtract-time-from-timer-if-answer-is-wrong-creating-a-quiz-javascript
 
-// Check if Answer is correct
+// When I click to answer, I am given feedback as to whether I answered correctly or wrongly, and another question is presented
+
+// Check if Answer is correct or incorrect and provide feedback
 var answerIsCorrect = function () {
-  document.getElementById(answer - feedback).style.backgroundColor = "green";
+  document.getElementById(runningQuestionIndex).style.backgroundColor = "green";
 };
 var answerIsWrong = function () {
-  document.getElementById(answer - feedback).style.backgroundColor = "red";
+  document.getElementById(runningQuestionIndex).style.backgroundColor = "red";
 };
 
 var score = 0;
 var checkAnswer = function (answer) {
-  if (questions[runningQuestionIndex].corect == answer) {
+  if (answer == questions[runningQuestionIndex].corect) {
     score++;
     answerIsCorrect();
   } else {
     answerIsWrong();
   }
   if (runningQuestionIndex < lastQuestionIndex) {
-    count = 0;
     runningQuestionIndex++;
-    questionRender();
+    renderQuestion();
   } else {
     clearInterval(timer);
     scoreRender();
   }
 };
-// When all questions are answered or the timer reaches 0 the game is over
+
+// Render progress
+var renderProgress = function () {
+  for (var qIndex = 0; qIndex <= lastQuestionIndex; qIndex++) {
+    progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
+  }
+};
+
+// Render score
+var scoreRender = function () {
+  scoreContainer.style.display = "block";
+  var scorePercent = Math.round((100 * score) / questions.length);
+  scoreContainer.innerHTML = "<p>" + scorePercent + "%</p>";
+};
 
 // TODO End of Game function scenario
+// When all questions are answered or the timer reaches 0 the game is over
 
 // When the game is over, I can save my initials and score
 

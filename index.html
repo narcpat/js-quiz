@@ -15,12 +15,13 @@
       <h2>Java Script Edition</h2>
     </header>
 
-    <div class="card">
+    <!-- START CONTAINER -->
+    <div class="card" id="container">
     
       <!-- START QUIZ -->
       <div id="start"> 
         <h3>Start Quiz!</h3>
-        <p>Welcome to <em>Do You Even Code? Jave Script Edition</em> where we find out whether you TRULY ARE A CODER</p>
+        <p>Welcome to <em>Do You Even Code? Jave Script Edition</em> where we find out whether you TRULY ARE A CODER!</p>
         <p>
         Here are the rules:
         </p>
@@ -30,7 +31,7 @@
           <li>Each right answer is worth 10 points.</li>
           <li>The game ends when all questions are answered, or time runs out.</li>
         </ol>
-        <h3><em>Good Luck!</em></h3>
+        <h4><em>Good Luck!</em></h4>
         <button class="btn">START</button>
       </div>
       <!-- END of START QUIZ -->
@@ -46,28 +47,33 @@
       
           <!-- CHOICES section -->
           <div id="choices">
-            <div class="choice" id="A" onclick="checkAnswer('A')"">A</div>
-            <div class="choice" id="B" onclick="checkAnswer('B')"">B</div>
-            <div class="choice" id="C" onclick="checkAnswer('C')"">C</div>
-            <div class="choice" id="D" onclick="checkAnswer('D')"">D</div>
+            <button class="choice" id="A" onclick="checkAnswer('A')"">A</button>
+            <button class="choice" id="B" onclick="checkAnswer('B')"">B</button>
+            <button class="choice" id="C" onclick="checkAnswer('C')"">C</button>
+            <button class="choice" id="D" onclick="checkAnswer('D')"">D</button>
           </div>
       </div>
 
-      <div id="scoreContainer" style="display: none;">
-        <p>100%</p>
+      <!-- FEEDBACK section -->
+      <div id="progress">
+        <div class="prog"></div>
       </div>
+      <!-- END of FEEDBACK -->
 
       <!-- TIMER/COUNTER section -->
       <div id="timer">
         <div id="counter"> 60 </div>
       </div>
       <!-- END of TIMER -->
-      <div id="score"></div>
-      <!-- SCORE COUNTER -->
 
+      <!-- SCORE COUNTER -->
+      <div id="score" style="display: none;">
+        <p></p>
+      </div>
+      <!-- END of SCORE -->
 
     </div>
-    
+    <!-- END of CONTAINER -->
   </main>
   <script src="./assets/js/script.js"></script>
 </body>
