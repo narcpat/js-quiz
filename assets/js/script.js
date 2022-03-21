@@ -144,10 +144,6 @@ var scoreRender = function () {
 // When all questions are answered or the timer reaches 0 the game is over.
 
 // Get players' initials
-// var playerInfo = {
-//   initials: getPlayerInitials(),
-//   perc: scoreRender(),
-// };
 
 // When the game is over, I can save my initials and score
 

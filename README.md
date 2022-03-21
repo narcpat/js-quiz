@@ -14,7 +14,7 @@ To create an interactive quiz game on JavaScript using HTML, CSS and JavaScript.
 
 www.placeholder.com
 
-IMAGE GOES HERE
+![Screenshot of Do You Even Code?](./assets/images/JS-Quiz_Screenshot.jpg)
 
 ## Contribution
 
@@ -22,15 +22,15 @@ Made with ❤️ by Patrick Narcisse (aka narcpat)
 
 ## Credits
 
-This youtube video by Code Explained was instrumental in helping me develop this project.
+The following YouTube video by Code Explained was instrumental in helping me develop this project. It largely influenced, many aspects of the Quiz including, how to retrieve questions and answers, and how to display progress (write and wrong answers).
 
 From Code Explained YouTube Channel
 https://youtu.be/49pYIMygIcU
 
-This answer on Stack Overflow by "Dave" helped me figure out how to set the timer and remove time from it for incorrect answers.
+The following answer on Stack Overflow by "Dave" helped me figure out how to set the timer and remove time from it for incorrect answers.
 
 https://stackoverflow.com/questions/58964755/subtract-time-from-timer-if-answer-is-wrong-creating-a-quiz-javascript
 
 ## Special Thanks
 
-A special thanks to ...
+A special thanks to Learning Assistants Derrick and Royce, who helped me get past certain hurdles with the timer function.
